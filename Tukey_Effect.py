@@ -1,4 +1,4 @@
-
+#load modules
 
 import pandas as pd
 import os
@@ -22,9 +22,9 @@ for file in os.listdir(folder_path):
 combined = pd.concat(all_dfs, ignore_index=True)
 combined['Diagnosis'] = combined['Diagnosis'].astype(str)
 
-# -------------------------------
+
 # Create simplified diagnosis variable
-# -------------------------------
+
 def classify_diagnosis(row):
     diag = row['Diagnosis'].lower()
     rf = row.get('Rheumatoid factor', 0)
@@ -47,14 +47,14 @@ combined = combined.dropna(subset=['Diagnosis_simple'])
 print("Patient counts by simplified diagnosis:")
 print(combined['Diagnosis_simple'].value_counts())
 
-# -------------------------------
-# Autoantibody markers
-# -------------------------------
+
+# identify autoantibody markers
+
 ab_markers = ['ACPA', 'ANA', 'Anti_dsDNA', 'Anti_Sm']
 
-# -------------------------------
+
 # Tukey HSD
-# -------------------------------
+
 print("\nTukey's HSD for all autoantibodies:")
 for marker in ab_markers:
     mask = combined[marker].notna()
@@ -65,9 +65,9 @@ for marker in ab_markers:
     print(f"\n--- {marker} ---")
     print(tukey)
 
-# -------------------------------
+
 # Cohen's d (effect size) between RA vs SS subgroups
-# -------------------------------
+
 def cohen_d(x, y):
     nx = len(x)
     ny = len(y)
@@ -84,9 +84,9 @@ for marker in ab_markers:
     print(f"{marker} | RA vs RF+ SS: d = {cohen_d(ra_vals, rfpos_vals):.3f}")
     print(f"{marker} | RA vs RF- SS: d = {cohen_d(ra_vals, rfneg_vals):.3f}")
 
-# -------------------------------
-# Multinomial logistic regression
-# -------------------------------
+
+# Multinomial logistic regression this didnt work but left it in the code for future testing
+
 # Replace '-' with '_' for formula compatibility
 combined = combined.rename(columns={
     'Anti-dsDNA': 'Anti_dsDNA',
