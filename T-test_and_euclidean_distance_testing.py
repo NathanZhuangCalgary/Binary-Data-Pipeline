@@ -10,7 +10,7 @@ from scipy.stats import ttest_ind
 
 # Load and combine CSV files
 
-folder_path = "/Users/nathanzhuang/Documents/Polygence Reasearch Project/Autoimmune Diseases"
+folder_path = "<folder path>"
 
 all_dfs = []
 for file in os.listdir(folder_path):
