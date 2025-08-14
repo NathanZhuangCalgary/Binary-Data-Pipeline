@@ -1,10 +1,10 @@
 import pandas as pd
 
 
-
-in_path = "/Users/nathanzhuang/Documents/Polygence Reasearch Project/Complete_Updated_Autoimmune_Disorder_Dataset.csv"
-              # your original CSV
-out_path = "your_file_deduped.csv"      # cleaned CSV
+#load orignal csv
+in_path = "<folder path>"
+              # original CSV
+out_path = "<folder path>.csv"      # cleaned CSV
 
 # Load dataset
 df = pd.read_csv(in_path)
