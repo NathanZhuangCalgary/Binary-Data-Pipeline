@@ -3,7 +3,7 @@ import numpy as np
 import seaborn as sns
 import pandas as pd
 
-# ---------- t-values for Autoantibody Comparison ----------
+#t-values for Autoantibody Comparison 
 antibodies = ['ACPA','ANA','Anti-dsDNA','Anti-Sm']
 t_values_rfpos = [-0.194,0.691,-0.372,-0.194]
 t_values_rfneg = [0.514,2.424,2.842,-0.673]
@@ -29,7 +29,7 @@ ax.legend()
 plt.show()
 
 
-# ---------- Euclidean Distances ----------
+# Euclidean Distances 
 distances = pd.DataFrame({
     'Euclidean Distance': [0.1641, 0.6443]
 }, index=['RF+ SS','RF- SS'])
@@ -41,7 +41,7 @@ plt.ylabel('SS Subgroup')
 plt.show()
 
 
-# ---------- Tukey HSD for Anti-dsDNA ----------
+# Tukey HSD for Anti-dsDNA
 groups = ['RA vs RF+ SS', 'RA vs RF- SS', 'RF+ SS vs RF- SS']
 differences = [-0.0361, 0.2399, 0.276]
 significant = [False, True, True]
@@ -60,7 +60,7 @@ plt.minorticks_on()
 plt.show()
 
 
-# ---------- Cohen's d Effect Sizes ----------
+# Cohen's d Effect Sizes
 d_rfpos = [0.038,-0.131,0.072,0.038]
 d_rfneg = [-0.092,-0.404,-0.494,0.122]
 
