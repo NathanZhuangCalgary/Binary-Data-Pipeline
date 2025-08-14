@@ -9,7 +9,7 @@ from scipy.stats import ttest_ind
 from statsmodels.formula.api import mnlogit as logit
 
 
-folder_path = "/Users/nathanzhuang/Documents/Polygence Reasearch Project/Autoimmune Diseases"
+folder_path = "<folder path>"
 all_dfs = []
 
 for file in os.listdir(folder_path):
