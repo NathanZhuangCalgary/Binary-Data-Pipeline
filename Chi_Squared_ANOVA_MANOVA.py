@@ -4,10 +4,10 @@ import os
 from scipy.stats import chi2_contingency, f_oneway
 from statsmodels.multivariate.manova import MANOVA
 
-# -------------------------------
+
 # Load and combine CSV files
-# -------------------------------
-folder_path = "/Users/nathanzhuang/Documents/Polygence Reasearch Project/Autoimmune Diseases"
+
+folder_path = "<folder path>"
 
 all_dfs = []
 for file in os.listdir(folder_path):
@@ -30,9 +30,9 @@ combined = combined.dropna(subset=['Diagnosis_simple'])
 # Autoantibody markers
 autoantibodies = ['ACPA', 'ANA', 'Anti-dsDNA', 'Anti-Sm']
 
-# -------------------------------
+
 # Chi-squared test for independence
-# -------------------------------
+
 print("Chi-squared Test Results:")
 for ab in autoantibodies:
     contingency = pd.crosstab(combined['Diagnosis_simple'], combined[ab])
@@ -43,9 +43,9 @@ for ab in autoantibodies:
     else:
         print(f"{ab}: Contingency table shape not valid")
 
-# -------------------------------
+
 # One-way ANOVA
-# -------------------------------
+
 groups = {
     "RF+ SS": combined[(combined['Diagnosis_simple'] == 'SS') & (combined['Rheumatoid factor'] > 0)],
     "RF- SS": combined[(combined['Diagnosis_simple'] == 'SS') & (combined['Rheumatoid factor'] == 0)],
@@ -62,9 +62,9 @@ for ab in autoantibodies:
     else:
         print(f"{ab}: Not enough data for ANOVA")
 
-# -------------------------------
+
 # MANOVA
-# -------------------------------
+
 manova_df = combined[['Diagnosis_simple'] + autoantibodies].copy()
 manova_df[autoantibodies] = manova_df[autoantibodies].apply(pd.to_numeric, errors='coerce')
 manova_df = manova_df.dropna()
