@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 # ---------------------------
 # Load data CSV file
 # ---------------------------
-file_path = r"C:\Users\natha\Documents\Polygence Reasearch Project\Autoimmune Diseases\Autoimmune_Disorder_10k_with_All_Disorders.csv"
+file_path = r"<file path>"
 combined = pd.read_csv(file_path)
 
 # Ensure 'Diagnosis' column is string
@@ -106,6 +106,7 @@ y_pred = log_reg.predict(X)
 
 print("\nLogistic Regression Results:")
 print(classification_report(y, y_pred, digits=3, zero_division=0))
+
 
 
 
