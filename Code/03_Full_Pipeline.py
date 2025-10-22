@@ -1,5 +1,5 @@
 """
-Binary Antibody Diagnostic Pipeline — Enhanced Version with Complete Outputs
+Binary Antibody Diagnostic Pipeline
 ---------------------------------------------------
 Purpose:
     Analyze binary-coded antibody data to evaluate serological overlap 
@@ -8,14 +8,14 @@ Purpose:
 Key Features:
     - Logistic regression separability with repeated cross-validation
     - Chi-squared & Fisher's exact tests with multiple testing correction
-    - Euclidean & Jaccard distance analysis with bootstrap CIs
+    - Euclidean & Jaccard distance analysis with bootstrap CIs (Jaccard Omitted from pipeline due to uninformative results)
     - Comprehensive metrics (balanced accuracy, AUC, sensitivity, specificity)
     - Automatic figure and table generation
     - Complete data capture for publication tables
 
-Author: Nathan Zhuang
-Version: CSBJ Submission Final Draft - Complete Outputs
-Python ≥3.9 required
+Authors: Nathan Zhuang, Jacqueline Howells
+Version: CSBJ Submission Final Draft
+Python ≥3.13 required
 """
 
 import pandas as pd
@@ -752,3 +752,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
