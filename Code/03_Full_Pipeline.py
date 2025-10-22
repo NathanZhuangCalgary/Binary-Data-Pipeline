@@ -52,7 +52,7 @@ def normalize_colname(s):
 # Load data safely
 # -----------------------------
 def load_data():
-    file_path = r"C:\Users\natha\Documents\Polygence Reasearch Project\Autoimmune Diseases\Autoimmune_Disorder_10k_with_All_Disorders.csv"
+    file_path = r"<file_path>"
     all_columns = pd.read_csv(file_path, nrows=0).columns.tolist()
     if 'ACPA' not in all_columns:
         raise KeyError("ACPA column not found in dataset header.")
@@ -750,4 +750,5 @@ def main():
     print("\nPipeline complete. All outputs saved to 'output/' directory.")
 
 if __name__ == "__main__":
+
     main()
